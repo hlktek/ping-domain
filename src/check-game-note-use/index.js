@@ -52,8 +52,7 @@ async function run() {
         if (host && !host.startsWith('http') && host.includes(':')) {
             const ip = host.split(':')[0];
             const port = host.split(':')[1];
-            // const resultCheck = await portChecker.check(ip, port);
-            const resultCheck = await portChecker.check('139.59.236.217', '29939');
+            const resultCheck = await portChecker.check(ip, port);
             console.log(host, 'is open', resultCheck.opened);
             if (resultCheck.opened) {
                 listServiceNotUsed.push(serviceInfo);
