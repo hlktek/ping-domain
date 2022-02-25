@@ -61,7 +61,7 @@ async function run() {
     }
 
     const messageTele = listServiceNotUsed.map((serviceInfo) => {
-        return`${serviceInfo.serviceId} - ${serviceInfo.version} - ${serviceInfo.serverInfo.serverId}`; 
+        return`${serviceInfo.serviceId} - ${serviceInfo.version} - ${serviceInfo.serverInfo.serverId} - ${serviceInfo.serverInfo.host}`; 
     }).join('\n');
 
     console.log(messageTele);
