@@ -61,7 +61,9 @@ async function run() {
     }
 
     const messageTele = listServiceNotUsed.map((serviceInfo) => {
-        return`${serviceInfo.serviceId} - ${serviceInfo.version} - ${serviceInfo.serverInfo.serverId} - ${serviceInfo.serverInfo.host}`; 
+        const host = serviceInfo.serverInfo.host;
+        const ip = host.split(':')[0];
+        return`${serviceInfo.serviceId} - ${serviceInfo.version} - ${serviceInfo.serverInfo.serverId} - ${LIST_SERVER[ip]}`; 
     }).join('\n');
 
     console.log(messageTele);
@@ -78,3 +80,6 @@ setInterval( async () => {
 
 run();
 
+const LIST_SERVER = {
+    "localhost": "my server",
+};
